@@ -1,0 +1,31 @@
+{
+  "version": 3,
+  "cmakeMinimumRequired": { "major": 3, "minor": 21, "patch": 0 },
+  "configurePresets": [
+    {
+      "name": "base",
+      "hidden": true,
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
+      }
+    },
+    {
+      "name": "linux",
+      "displayName": "Linux (native)",
+      "inherits": "base",
+      "binaryDir": "${sourceDir}/build/linux"
+    },
+    {
+      "name": "windows",
+      "displayName": "Windows (MinGW-w64 cross, run with wine)",
+      "inherits": "base",
+      "binaryDir": "${sourceDir}/build/windows",
+      "toolchainFile": "${sourceDir}/cmake/toolchains/mingw-w64-x86_64.cmake"
+    }
+  ],
+  "buildPresets": [
+    { "name": "linux",   "configurePreset": "linux" },
+    { "name": "windows", "configurePreset": "windows" }
+  ]
+}
