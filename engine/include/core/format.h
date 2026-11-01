@@ -1,3 +1,4 @@
+#pragma once
 template <typename... Args> class FormatString {
 public:
   const char *str;
