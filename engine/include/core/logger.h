@@ -49,3 +49,5 @@ public:
 #pragma clang diagnostic pop
   };
 };
+
+extern Logger logger;
